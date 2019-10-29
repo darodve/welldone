@@ -86,6 +86,7 @@ const ListaArticulosEdicion = ({ articulo, setRecargarArticulos, setRecargarArti
     }
 
     return(
+        <>
         <li className="list-group-item d-flex justify-content-between align-items-center" data-categoria={ articulo.categoria }>
             <p>
                 <span className="font-weight-bold">{ articulo.titulo }</span><br/><small>{ dateFormatted }</small>
@@ -95,6 +96,7 @@ const ListaArticulosEdicion = ({ articulo, setRecargarArticulos, setRecargarArti
                     to={`/articulos/editar/${ articulo.id }?t=${ usuario.token }`}
                     className="btn btn-success mr-2"
                 >Editar </Link>
+                <a href={ '#art' + articulo.id } data-toggle="collapse" role="button" aria-expanded="false" aria-controls={ "art" + articulo.id } className="btn btn-success mr-2">Editar Artículo</a>
                 <button
                     type="button"
                     className="btn btn-danger"
@@ -104,6 +106,10 @@ const ListaArticulosEdicion = ({ articulo, setRecargarArticulos, setRecargarArti
                 </button>
             </div>
         </li>
+        <div id={ "art" + articulo.id } className="collapse list-group-item justify-content-between align-items-center mb-2">
+            Mi bloque
+        </div>
+        </>
     )
 }
 
