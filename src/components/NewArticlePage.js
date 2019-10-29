@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { withRouter, Redirect } from 'react-router-dom';    
+import { withRouter/*, Redirect*/ } from 'react-router-dom';    
 
 import Error from './Error';
 import ListaCategorias from './ListaCategorias';
@@ -46,7 +46,7 @@ const NewArticlePage = ({ history, setRecargarArticulos, usuario, setUsuario, is
         try{
             const headers = {
                 'Content-Type': 'application/json',
-                'Authorization': `Token ${ usuario.token || JSON.parse( sessionStorage.getItem( 'WellDone' ) ).usrToken }`
+                'Authorization': `Token ${ usuario.token /*|| JSON.parse( sessionStorage.getItem( 'WellDone' ) ).usrToken*/ }`
               };
 
             const data = {

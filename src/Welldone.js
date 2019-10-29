@@ -47,17 +47,17 @@ function Welldone() {
       // cambiamos a false la recarga de articulos para que no este recargando continuamente
       setRecargarArticulos( false );
 
-      // Comprobamos si ya hay un sesión creada y no estoy autenticado porque me han refrescado el navegador
-      if (sessionStorage.getItem("WellDone") && isAuthenticated === false ) {
-        setIsAuthenticated( true );
-        const sessionData = JSON.parse( sessionStorage.getItem( 'WellDone' ) );
+      // // Comprobamos si ya hay un sesión creada y no estoy autenticado porque me han refrescado el navegador
+      // if (sessionStorage.getItem("WellDone") && isAuthenticated === false ) {
+      //   setIsAuthenticated( true );
+      //   const sessionData = JSON.parse( sessionStorage.getItem( 'WellDone' ) );
 
-        setUsuario({
-          username: sessionData.usrName,
-          id: sessionData.usrId,
-          token: sessionData.usrToken
-        });
-      } 
+      //   setUsuario({
+      //     username: sessionData.usrName,
+      //     id: sessionData.usrId,
+      //     token: sessionData.usrToken
+      //   });
+      // } 
 
     }
   }, [ recargarArticulos, isAuthenticated ]);
@@ -110,11 +110,11 @@ function Welldone() {
               // obtenemos el id del artículo
               const id = parseInt( props.match.params.id );
               
-              const articulo = articulos.filter( articulo => articulo.id === id );
+              const articulo = articulos.filter( articulo => articulo.id === id )[0];
 
               return(
                 <EditarArticulo
-                  articulo={ articulo[ 0 ] }
+                  articulo={ articulo }
                   setRecargarArticulos={ setRecargarArticulos }
                 />
               );

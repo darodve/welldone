@@ -12,6 +12,8 @@ const EditarArticulo = props => {
     const token = new URLSearchParams(props.history.location.search).get( 't' );
 
     const { history, articulo, setRecargarArticulos } = props;
+
+    console.log( 'Artículo INDIVIDUAL:', articulo )
     
     // refs
     const tituloRef = useRef('');
@@ -63,6 +65,8 @@ const EditarArticulo = props => {
             categoria : catArticulo,
             imagen : imagenRef.current.value
         }
+
+        console.log( 'DATOS ARTÍCULO:', datosArticulo )
 
         try{
             const resultado = await axios({
@@ -159,9 +163,6 @@ const EditarArticulo = props => {
                         defaultValue={ articulo.titulo }
                     />
                 </div>
-                {
-                    //TODO: ver si uncluimos obligatoriedad en la introducción de la imagen
-                }
                 <div className="form-group">
                     <label>Imagen</label>
                     <input 
